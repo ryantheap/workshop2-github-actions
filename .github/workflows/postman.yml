@@ -24,6 +24,9 @@ jobs:
       - name: Run newman
         run: newman run postman/collection.json -e postman/env.json -d postman/data.json -r cli,htmlextra
 
+      - name: List Newman files
+        run: ls -la newman
+
       - name: publish report
         uses: actions/upload-artifact@v4
         if: always()
