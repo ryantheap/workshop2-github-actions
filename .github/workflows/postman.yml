@@ -9,8 +9,8 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Clone repository
+        uses: actions/checkout@v4
 
       - name: List Postman files
         run: ls -la postman
@@ -28,5 +28,5 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          path: ./newman/*.html
+          path: newman/*.html
           name: html-report
