@@ -15,8 +15,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setup French Locale
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y language-pack-fr
+          sudo locale-gen fr_FR.UTF-8
+          sudo update-locale LANG=fr_FR.UTF-8
+
+      - name: Verify Locale
+        run: locale
+
       - name: Run e2e:workshop
         run: npx cypress run --spec "cypress/e2e/trello.cy.js"
+        env:
+          LANG: fr_FR.UTF-8
+          LC_ALL: fr_FR.UTF-8
 
       - name: publish report
         uses: actions/upload-artifact@v4
