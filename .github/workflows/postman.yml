@@ -12,8 +12,11 @@ jobs:
       - name: Install newman
         run: npm install -g newman
 
+      - name: Install newman-reporter-htmlextra
+        run: npm install newman-reporter-htmlextra --save-dev
+
       - name: Run newman
-        run: newman run postman/collection.json -e postman/env.json -d postman/data.json --reporters=cli,htmlextra
+        run: newman run /postman/collection.json -e /postman/env.json -d /postman/data.json --reporters=cli,htmlextra
 
       - name: publish report
         uses: actions/upload-artifact@v4
