@@ -9,14 +9,6 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Echo LS
-        run: |
-          echo "Listing the contents of the repository directory:"
-          ls
-
       - name: Install newman
         run: npm install -g newman
 
@@ -24,7 +16,7 @@ jobs:
         run: npm install newman-reporter-htmlextra --save-dev
 
       - name: Run newman
-        run: newman run /postman/collection.json -e /postman/env.json -d /postman/data.json --reporters=cli,htmlextra
+        run: newman run postman\collection.json -e postman\env.json -d postman\data.json --reporters=cli,htmlextra
 
       - name: publish report
         uses: actions/upload-artifact@v4
