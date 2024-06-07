@@ -9,6 +9,11 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
+      - name: Echo LS
+        run: |
+          echo "Listing the contents of the repository directory:"
+          ls
+
       - name: Install newman
         run: npm install -g newman
 
