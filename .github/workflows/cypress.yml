@@ -1,0 +1,26 @@
+name: Sample
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run e2e:workshop
+        run: npx cypress run --spec "cypress/e2e/workshop.cy.js"
+
+      - name: publish report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          path: ./cypress/reports/html
+          name: html-report

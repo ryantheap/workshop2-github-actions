@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Elaborer un plan de test",
+    "description": "Elaborer un plan de test détaillé pour le projet",
+    "migrate": "Done"
+  },
+  {
+    "title": "Concevoir les cas de test",
+    "description": "Rédiger des cas de test pour toutes les fonctionnalités principales de l'application",
+    "migrate": "Done"
+  },
+  {
+    "title": "Exécuter des tests fonctionnels",
+    "description": "Exécuter des tests fonctionnels pour vérifier que chaque fonctionnalité fonctionne correctement",
+    "migrate": "In Progress"
+  },
+  {
+    "title": "Automatiser des tests de régression",
+    "description": "Mettre en place des scripts d'automatisation pour les tests de régression",
+    "migrate": "In Review"
+  },
+  {
+    "title": "Exécuter des tests de performance",
+    "description": "Exécuter des tests de performance pour évaluer la réactivité et la stabilité de l'application sous charge",
+    "migrate": "To Do"
+  }
+]
