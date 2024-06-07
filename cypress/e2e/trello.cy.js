@@ -12,7 +12,7 @@ describe("projet trello", () => {
     });
 
     cy.get('[href="/b/Ym8HTYlp/wcs-projet-trello"]').click();
-    cy.wait(3000);
+    cy.wait(15000);
     cy.fixture("cardData").then((cardData) => {
       /* Ajouter les cartes */
       cardData.forEach((card) => {
