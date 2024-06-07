@@ -16,7 +16,7 @@ describe("projet trello", () => {
     cy.fixture("cardData").then((cardData) => {
       /* Ajouter les cartes */
       cardData.forEach((card) => {
-        cy.contains("Add a map").click();
+        cy.contains("Ajouter une carte").click();
         cy.get('[data-testid="list-card-composer-textarea"]').type(card.title);
       });
 
