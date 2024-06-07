@@ -12,20 +12,14 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: List Postman files
-        run: ls -la postman
-
       - name: Install newman
         run: npm install -g newman
 
       - name: Install newman-reporter-htmlextra
-        run: npm install newman-reporter-htmlextra --save-dev
+        run: npm install -g newman newman-reporter-htmlextra
 
       - name: Run newman
         run: newman run postman/collection.json -e postman/env.json -d postman/data.json -r cli,htmlextra
-
-      - name: List Newman files
-        run: ls -la newman
 
       - name: publish report
         uses: actions/upload-artifact@v4
