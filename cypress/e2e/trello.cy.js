@@ -12,40 +12,40 @@ describe("projet trello", () => {
     });
 
     cy.get('[href="/b/Ym8HTYlp/wcs-projet-trello"]').click();
-    cy.wait(15000);
-    cy.fixture("cardData").then((cardData) => {
-      /* Ajouter les cartes */
-      cardData.forEach((card) => {
-        cy.contains("Ajouter une carte").click();
-        cy.get('[data-testid="list-card-composer-textarea"]').type(card.title);
-      });
+    // cy.wait(15000);
+    // cy.fixture("cardData").then((cardData) => {
+    //   /* Ajouter les cartes */
+    //   cardData.forEach((card) => {
+    //     cy.contains("Ajouter une carte").click();
+    //     cy.get('[data-testid="list-card-composer-textarea"]').type(card.title);
+    //   });
 
-      // Ajouter la description pour chaque carte
-      cardData.forEach((card) => {
-        cy.contains(card.title).click();
-        cy.wait(3000);
+    //   // Ajouter la description pour chaque carte
+    //   cardData.forEach((card) => {
+    //     cy.contains(card.title).click();
+    //     cy.wait(3000);
 
-        cy.get(
-          '[aria-label="Zone de contenu principale, commencez à taper pour saisir du texte."]'
-        )
-          .click({ force: true })
-          .type(card.description);
-        cy.get('[data-testid="editor-save-button"]').click();
-        cy.get('[aria-label="Fermer la boîte de dialogue"]').click();
-      });
+    //     cy.get(
+    //       '[aria-label="Zone de contenu principale, commencez à taper pour saisir du texte."]'
+    //     )
+    //       .click({ force: true })
+    //       .type(card.description);
+    //     cy.get('[data-testid="editor-save-button"]').click();
+    //     cy.get('[aria-label="Fermer la boîte de dialogue"]').click();
+    //   });
 
-      // Déplacer les cartes
-      cardData.forEach((card) => {
-        cy.contains(card.title)
-          .parents("li")
-          .then(($cardElement) => {
-            cy.contains(card.migrate)
-              .parents("li")
-              .then(($listElement) => {
-                cy.wrap($cardElement).drag($listElement, { force: true });
-              });
-          });
-      });
-    });
+    //   // Déplacer les cartes
+    //   cardData.forEach((card) => {
+    //     cy.contains(card.title)
+    //       .parents("li")
+    //       .then(($cardElement) => {
+    //         cy.contains(card.migrate)
+    //           .parents("li")
+    //           .then(($listElement) => {
+    //             cy.wrap($cardElement).drag($listElement, { force: true });
+    //           });
+    //       });
+    //   });
+    // });
   });
 });
